@@ -1,4 +1,5 @@
 # advent-of-code
+[![GitHub Actions](https://github.com/andreiursan/advent-of-code/workflows/CI/badge.svg)](https://github.com/andreiursan/advent-of-code/actions)
 
 Advent of Code solved in Clojure.
 
