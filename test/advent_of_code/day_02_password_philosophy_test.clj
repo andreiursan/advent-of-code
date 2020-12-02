@@ -7,4 +7,5 @@
                        "2-9 c: ccccccccc"])
 (deftest test-report
   (testing "Find the number of valid passwords"
-    (is (= 2 (count-valid-passwords password-strings)))))
+    (is (= 2 (count-valid-passwords-part1 password-strings)))
+    (is (= 1 (count-valid-passwords-part2 password-strings)))))

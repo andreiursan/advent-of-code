@@ -5,7 +5,6 @@
             [clojure.java.io :as io]))
 
 (defn file->line-seq [file-name]
-  (io/reader (io/resource file-name))
   (-> (io/resource file-name)
       io/reader
       line-seq))
@@ -15,10 +14,12 @@
    > lein run d01.p1"
   [part]
   (case part
-    "d01.p1" (println "Day 01 part 1 result: "
+    "d01.p1" (println "Day 01.p1 result: "
                       (day-01/find-magic-number-part1 (file->line-seq "day01-input.txt")))
-    "d01.p2" (println "Day 01 part 2 result: "
+    "d01.p2" (println "Day 01.p2 result: "
                       (day-01/find-magic-number-part2 (file->line-seq "day01-input.txt")))
-    "d02.p1" (println "Day 02 part 1 result: "
-                      (day-02/count-valid-passwords (file->line-seq "day02-input.txt")))
+    "d02.p1" (println "Day 02.p1 result: "
+                      (day-02/count-valid-passwords-part1 (file->line-seq "day02-input.txt")))
+    "d02.p2" (println "Day 02.p2 result: "
+                      (day-02/count-valid-passwords-part2 (file->line-seq "day02-input.txt")))
     (println "Unknown Argument")))
