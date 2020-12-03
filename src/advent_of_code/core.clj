@@ -24,5 +24,7 @@
     "d02.p2" (println "Day 02.p2 result: "
                       (day-02/count-valid-passwords-part2 (file->line-seq "day02-input.txt")))
     "d03.p1" (println "Day 03.p1 result: "
-                      (day-03/toboggan-trees-count (file->line-seq "day03-input.txt")))
+                      (day-03/toboggan-trees-count-part1 (file->line-seq "day03-input.txt")))
+    "d03.p2" (println "Day 03.p2 result: "
+                      (day-03/toboggan-trees-count-part2 (file->line-seq "day03-input.txt")))
     (println "Unknown Argument")))

@@ -15,4 +15,4 @@
                     ".#..#...#.#"])
 (deftest test-report
   (testing "Find the number of trees on the way"
-    (is (= 7 (toboggan-trees-count geology-input)))))
+    (is (= 7 (toboggan-trees-count geology-input 3 1)))))
