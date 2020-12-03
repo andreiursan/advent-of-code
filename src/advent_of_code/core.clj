@@ -2,6 +2,7 @@
   (:gen-class)
   (:require [advent-of-code.day-01-report-repair :as day-01]
             [advent-of-code.day-02-password-philosophy :as day-02]
+            [advent-of-code.day-03-toboggan-trajectory :as day-03]
             [clojure.java.io :as io]))
 
 (defn file->line-seq [file-name]
@@ -22,4 +23,6 @@
                       (day-02/count-valid-passwords-part1 (file->line-seq "day02-input.txt")))
     "d02.p2" (println "Day 02.p2 result: "
                       (day-02/count-valid-passwords-part2 (file->line-seq "day02-input.txt")))
+    "d03.p1" (println "Day 03.p1 result: "
+                      (day-03/toboggan-trees-count (file->line-seq "day03-input.txt")))
     (println "Unknown Argument")))
