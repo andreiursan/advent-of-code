@@ -8,24 +8,23 @@
       \. \O
       \# \X)))
 
-(defn navigate [acc lane]
-  (let [current-pos (:current-pos acc)
-        step-right (:step-right acc)
-        current-step-down (- (:current-step-down acc) 1)
-        new-pos (+ current-pos step-right)]
-    (if (zero? current-step-down)
+(defn slide? [{:keys [current-step-down]}]
+  (zero? (- current-step-down 1)))
+
+(defn navigate [step-right step-down acc lane]
+  (if (slide? acc)
+    (let [current-pos (:current-pos acc)
+          new-pos (+ current-pos step-right)]
       (-> (assoc acc :current-pos new-pos)
-          (assoc :current-step-down (:step-down acc))
-          (update :path conj (element-on-position new-pos lane)))
-      (assoc acc :current-step-down current-step-down))))
+          (assoc :current-step-down step-down)
+          (update :path conj (element-on-position new-pos lane))))
+    (update acc :current-step-down dec)))
 
 (defn toboggan-trip [lanes step-right step-down]
   (let [start-pos 1
         [_ & lanes-to-travel] lanes]
-    (reduce navigate
-            {:step-right step-right
-             :step-down step-down
-             :current-step-down step-down
+    (reduce (partial navigate step-right step-down)
+            {:current-step-down step-down
              :current-pos start-pos
              :path        []}
             lanes-to-travel)))
